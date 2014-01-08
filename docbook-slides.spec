@@ -1,13 +1,11 @@
 Summary:	DocBook Slides document type and stylesheets
 Name:		docbook-slides
 Version:	3.4.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications/Publishing/XML
 Source0:	http://downloads.sourceforge.net/docbook/%{name}-%{version}.tar.gz
 # Source0-md5:	26e2083077454d7140f2b82ae3d66123
-Source1:	%{name}.xml
-Source2:	%{name}.cat
 URL:		http://sourceforge.net/projects/docbook
 Requires(post,preun):	/usr/bin/install-catalog
 Requires(post,preun):	/usr/bin/xmlcatalog
@@ -36,8 +34,8 @@ install -d $RPM_BUILD_ROOT%{dtd_path}
 
 cp -a browser graphics schema xsl VERSION $RPM_BUILD_ROOT%{dtd_path}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{xmlcat_file}
-install %{SOURCE2} $RPM_BUILD_ROOT%{sgmlcat_file}
+install catalog.xml $RPM_BUILD_ROOT%{xmlcat_file}
+install catalog $RPM_BUILD_ROOT%{sgmlcat_file}
 
 %docbook_sgmlcat_fix $RPM_BUILD_ROOT%{sgmlcat_file} %{version}
 

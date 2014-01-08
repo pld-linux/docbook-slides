@@ -16,7 +16,7 @@ Requires:	sgml-common
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		dtd_path	%{_datadir}/xml/docbook/slides/%{version}
+%define		dtd_path	%{_datadir}/sgml/docbook/slides/%{version}
 %define		xmlcat_file	%{dtd_path}/catalog.xml
 %define		sgmlcat_file	%{dtd_path}/catalog
 
@@ -68,4 +68,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc BUGS NEWS README RELEASE-NOTES.txt TODO doc
+%dir %{_datadir}/sgml/docbook/slides
 %{dtd_path}
